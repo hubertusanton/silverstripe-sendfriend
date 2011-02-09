@@ -14,3 +14,4 @@ Director::addRules(100, array(
 
 // add decorator
 Object::add_extension('Page_Controller', 'SendFriendDecorator');
+//
