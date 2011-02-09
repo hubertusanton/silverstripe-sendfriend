@@ -6,10 +6,10 @@ class SendFriendDecorator extends Extension {
     function SendFriendLink()
     {
         Requirements::insertHeadTags('<script type="text/javascript">var GB_ROOT_DIR = "' . Director::absoluteBaseURL() . 'SendFriend/thirdparty/greybox/";</script>');
-        Requirements::javascript('SendFriend/thirdparty/greybox/AJS.js');
-        Requirements::javascript('SendFriend/thirdparty/greybox/AJS_fx.js');
-        Requirements::javascript('SendFriend/thirdparty/greybox/gb_scripts.js');
-        Requirements::css('SendFriend/thirdparty/greybox/gb_styles.css', 'screen');
+        Requirements::javascript(SENDFRIEND_DIR . '/thirdparty/greybox/AJS.js');
+        Requirements::javascript(SENDFRIEND_DIR . '/thirdparty/greybox/AJS_fx.js');
+        Requirements::javascript(SENDFRIEND_DIR. '/thirdparty/greybox/gb_scripts.js');
+        Requirements::css(SENDFRIEND_DIR . '/thirdparty/greybox/gb_styles.css', 'screen');
         return '<a href="' . Director::absoluteBaseURL() . 'sendfriend?sendurl=' . Director::absoluteBaseURL() . $this->owner->URLSegment . '" rel="gb_page_center[' . SENDFRIEND_POPUP_WIDTH . ', ' . SENDFRIEND_POPUP_HEIGHT . ']">' . _t('SendFriend.SENDFRIENDLINK', "Send to a friend") . '</a>';
     }
 

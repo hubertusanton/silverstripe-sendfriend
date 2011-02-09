@@ -16,7 +16,7 @@ class SendFriendController extends Page_Controller
         public function checkSentUrl($senturl) {
             $pos =  strpos($senturl, Director::absoluteBaseURL());
             if ($pos === false) {
-                print Director::absoluteBaseURL() . ' not in ' . $senturl;
+                //print Director::absoluteBaseURL() . ' not in ' . $senturl;
                 Director::redirect(Director::absoluteBaseURL());
             }
             else {
@@ -58,19 +58,42 @@ class SendFriendController extends Page_Controller
             $Form = new Form($this, 'SendFriendForm', $fields, $actions, $validator);
             return $Form;
 	}
+
+        function spamCheck($field)
+        {
+            //filter_var() sanitizes the e-mail
+            //address using FILTER_SANITIZE_EMAIL
+            $field = filter_var($field, FILTER_SANITIZE_EMAIL);
+
+            //filter_var() validates the e-mail
+            //address using FILTER_VALIDATE_EMAIL
+            if(filter_var($field, FILTER_VALIDATE_EMAIL))
+            {
+                return true;
+            }
+            else
+            {
+                Director::redirect(Director::absoluteBaseURL());
+                return false;
+            }
+        }
 	
 	//send the email
 	function doSendFriend($data, $form)
 	{
             $the_url   = $data['sendurl'];
-            $yourname  = $data['YourName'];
-            $youremail = $data['YourEmail'];
-            $toname    = $data['ToName'];
-            $toemail   = $data['ToEmail'];
-            $remarks   = $data['Remarks'];
+            $yourname  = trim($data['YourName']);
+            $youremail = trim($data['YourEmail']);
+            $toname    = trim($data['ToName']);
+            $toemail   = trim($data['ToEmail']);
+            $remarks   = trim($data['Remarks']);
             $copyself  = $data['CopySelf'];
-           
+
+            // do a check on the sent url and email addresses
             $this->checkSentUrl($the_url);
+            $this->spamCheck($toemail);
+            $this->spamCheck($youremail);
+
 
             $from = $yourname . '<' . $youremail . '>';
             $to = $toname . '<' . $toemail . '>';
