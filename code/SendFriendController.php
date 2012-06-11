@@ -98,20 +98,20 @@ class SendFriendController extends Page_Controller
             $from = $yourname . '<' . $youremail . '>';
             $to = $toname . '<' . $toemail . '>';
             
-            $subject = 'Interesting article on ' . SiteConfig::current_site_config()->getTitle();
+            $subject = _t('SendFriend.SUBJECT','Interesting article on ') . SiteConfig::current_site_config()->getTitle();
 
             $body  = '';
-            $body .= "Dear " . $toname . ",\n\n";
-            $body .= $yourname . " would like to let you know about the following page: \n\n";
+            $body .=  _t('SendFriend.DEAR','Dear ') . $toname . ",\n\n";
+            $body .= $yourname . _t('SendFriend.TEXT',' would like to let you know about the following page: ')."\n\n";
             $body .= $the_url . "\n\n";
             if (trim($remarks) != '')
-                $body .= "Message from " . $yourname . ":\n " . $remarks . "\n\n";
+                $body .= _t('SendFriend.MESSAGEFROM','Message from ') . $yourname . ":\n " . $remarks . "\n\n";
 
             $email = new Email($from, $to, $subject, $body);
             $email->sendPlain();
 
             if ($copyself) {
-                $body = "--- copy of message to " . $toname . " ---\n\n" . $body;
+                $body =  _t('SendFriend.COPYOFMESSAGE','--- copy of message to ') . $toname . " ---\n\n" . $body;
                 $email = new Email($from, $from, $subject, $body);
                 $email->sendPlain();
             }
