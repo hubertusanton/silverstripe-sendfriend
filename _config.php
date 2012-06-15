@@ -19,3 +19,6 @@ Director::addRules(100, array(
 // add decorator
 Object::add_extension('Page_Controller', 'SendFriendDecorator');
 //
+
+//if you would like to use a jquery functionality, uncomment this in your config
+#SendFriendDecorator::$JSMode = 'Jquery';
