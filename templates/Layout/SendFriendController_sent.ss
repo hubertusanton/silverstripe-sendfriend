@@ -3,5 +3,5 @@
 
                         <p><% _t('SendFriend.SENT_TEXT', 'Your Message has been sent') %></p>
 
-                        <p><a href="#" onclick="parent.parent.GB_hide();"><% _t('SendFriend.BACKTO_PAGE', 'Go back to the page.') %></a></p>
+                        <p><a href="#" onclick="<% if JSMode = Jquery %>parent.parent.$.modal.close();<% else %>parent.parent.GB_hide();<% end_if %>"><% _t('SendFriend.BACKTO_PAGE', 'Go back to the page.') %></a></p>
 

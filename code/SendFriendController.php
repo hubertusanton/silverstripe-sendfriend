@@ -81,13 +81,16 @@ class SendFriendController extends Page_Controller
 	//send the email
 	function doSendFriend($data, $form)
 	{
+            $copyself = false;
             $the_url   = $data['sendurl'];
             $yourname  = trim($data['YourName']);
             $youremail = trim($data['YourEmail']);
             $toname    = trim($data['ToName']);
             $toemail   = trim($data['ToEmail']);
             $remarks   = trim($data['Remarks']);
-            $copyself  = $data['CopySelf'];
+            if(isset($data['CopySelf'])){
+                $copyself  = $data['CopySelf'];
+            }
 
             // do a check on the sent url and email addresses
             $this->checkSentUrl($the_url);
