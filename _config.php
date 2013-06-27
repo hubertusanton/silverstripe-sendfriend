@@ -1,11 +1,6 @@
 <?php
 
-if (($SENDFRIEND_MODULE_DIR = basename(dirname(__FILE__))) != 'SendFriend') {
-	die("Send friend module should exist in the /SendFriend directory, not $SENDFRIEND_MODULE_DIR");
-}
-
-// directory which holds this module
-define('SENDFRIEND_DIR', 'SendFriend');
+define('SENDFRIEND_DIR',basename(dirname(__FILE__)));
 
 // height and width of popup
 define('SENDFRIEND_POPUP_WIDTH', 500);
