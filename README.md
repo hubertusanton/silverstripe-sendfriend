@@ -11,10 +11,6 @@ Requirements
 
 Check 2.4 branch for older version of silverstripe 
 
-Documentation
--------------
-[GitHub Wiki](http://wiki.github.com/hubertusanton/silverstripe-sendfriend)
-
 Installation Instructions
 -------------------------
 
@@ -27,8 +23,6 @@ Usage
 This is a very simple module for adding a Send a friend functionality to your Silverstripe website.
 In The overall Page.ss you can add $SendFriendLink to create the link to the sendfriend form greybox popup.
 
-Known Issues
-------------
 
 ## License
 

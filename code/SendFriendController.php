@@ -1,7 +1,7 @@
 <?php 
 
-class SendFriendController extends Page_Controller
-{
+class SendFriendController extends Page_Controller {
+	
 	const URLSegment = SENDFRIEND_DIR;
 
 	public function getURLSegment() {
@@ -99,7 +99,6 @@ class SendFriendController extends Page_Controller
 		$this->checkSentUrl($the_url);
 		$this->spamCheck($toemail);
 		$this->spamCheck($youremail);
-
 
 		$from = $yourname . '<' . $youremail . '>';
 		$to = $toname . '<' . $toemail . '>';

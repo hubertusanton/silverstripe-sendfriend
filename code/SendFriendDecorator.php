@@ -8,6 +8,7 @@ class SendFriendDecorator extends Extension {
 	function SendFriendLink() {
 
 		if (self::$JSMode == 'Jquery') {
+			Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery/jquery.min.js');
 			Requirements::javascript(SENDFRIEND_DIR . '/thirdparty/jquery.simplemodal/jquery.simplemodal.1.4.2.min.js');
 			Requirements::javascript(SENDFRIEND_DIR . '/thirdparty/jquery.simplemodal/popup.js');
 			Requirements::css(SENDFRIEND_DIR . '/thirdparty/jquery.simplemodal/css/basic.css', 'screen');
