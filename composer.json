@@ -1,7 +1,7 @@
 {
 	"name": "hubertusanton/silverstripe-sendfriend",
 	"description": "SilverStripe Send Friend",
-	"type": "silverstripe-sendfriend",
+	"type": "silverstripe-module",
 	"homepage": "http://github.com/hubertusanton/silverstripe-sendfriend",
 	"keywords": ["silverstripe", "send friend"],
 	"license": "BSD-3-Clause",
